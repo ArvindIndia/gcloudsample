@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleController {
 
+	@RequestMapping(value="/", method=RequestMethod.GET, produces=MediaType.ALL_VALUE)
+	public String deafultMessage() {
+		return "Welcome Home";
+	}
+	
 	@RequestMapping(value="/hello/{message}", method=RequestMethod.GET, produces=MediaType.ALL_VALUE)
 	public String helloMessage(@PathVariable String message) {
 		return "Welcome " + message;
